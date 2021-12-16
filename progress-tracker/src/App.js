@@ -10,6 +10,7 @@ import {useEffect, useState} from "react";
 import ProjectList from "./components/ProjectList";
 import ProjectAdminView from "./components/ProjectAdminView";
 import Settings from "./Settings";
+import ProjectCreateBlock from "./components/ProjectCreateBlock";
 
 function App() {
     const [component, setComponent] = useState('All')
@@ -77,6 +78,13 @@ function renderDynamicComponent(component, changeComponent, projectId, changePro
             />)
         case 'Settings':
             return <Settings setTheme={setTheme} darkMode={darkMode}/>
+        case 'Create_Project':
+            return(
+                <ProjectCreateBlock
+                    userType = {"admin"}
+                    changeComponent = {changeComponent}
+                />
+            ) //this will be the create project page's caller*/
     }
 }
 
