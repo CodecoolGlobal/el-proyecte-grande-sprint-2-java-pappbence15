@@ -35,10 +35,7 @@ public class ProjectController {
     @ResponseBody
     @GetMapping("/admin/projects")
     public ResponseEntity<?> adminProjectsView() throws ParseException {
-        DailyGoalDeadlineCheckService dailyCheck = new DailyGoalDeadlineCheckService(projectDao);
-        //dailyCheck.sendOverDueNotifications();
-        RepeatingNotificationsService repeatedMessageSender= new RepeatingNotificationsService(projectDao);
-        repeatedMessageSender.scheduleFixedRateTask();
+        //RepeatingNotificationsService rep= new RepeatingNotificationsService(projectDao); //Working piece of art
         User user = userService.getLoggedInUser();
         UserType userType = user.getUserType();
 

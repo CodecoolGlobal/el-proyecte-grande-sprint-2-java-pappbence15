@@ -19,7 +19,7 @@ public class RepeatingNotificationsService {
         this.projectDao = projectDao;
     }
 
-    @Scheduled(cron = "0 0 8 * * *", zone ="Europe/Budapest")//repeat every day at 0 //TODO fix: scheduled task repeats when first called, search for fixing it
+    @Scheduled(cron = "0 0 8 * * *", zone ="Europe/Budapest")//repeats every day at 0800
     public void scheduleFixedRateTask() throws ParseException {
         DailyGoalDeadlineCheckService dailyNotificationService = new DailyGoalDeadlineCheckService(projectDao);
         dailyNotificationService.sendOverDueNotifications();
