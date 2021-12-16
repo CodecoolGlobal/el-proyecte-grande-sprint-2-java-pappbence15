@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import ProjectLink from "./ProjectLink";
+import ProjectCreateButton from "./ProjectCreateButton";
 
 export default function ProjectList(props){
     const [error, setError] = useState(null);
@@ -49,6 +50,11 @@ export default function ProjectList(props){
                         />
                     </li>
                 ))}
+                <br/>
+                <ProjectCreateButton
+                    url={'/admin/project/create'}
+                    changeComponent = {props.changeComponent}
+                />
             </ul>
         );
     }
